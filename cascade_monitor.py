@@ -4,7 +4,10 @@ import sys
 import argparse
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from playsound import playsound
+import pygame.mixer
+
+# Initialize pygame mixer
+pygame.mixer.init()
 
 # Get the directory where the script is located
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -72,15 +75,20 @@ class FileChangeHandler(FileSystemEventHandler):
             self.has_alerted = True
 
 def play_system_sound(sound_key):
-    """Play the specified sound file on Windows."""
+    """Play the specified sound file at half volume."""
     sound_file = SOUND_FILES.get(sound_key, SOUND_FILES["jobs-done"])  # Default to jobs-done if invalid
     print(f"Attempting to play sound file: {sound_file}")
     if not os.path.exists(sound_file):
         print(f"Error: Sound file not found at {sound_file}")
         return
     try:
-        print("Playing sound using playsound...")
-        playsound(sound_file)
+        print("Playing sound using pygame.mixer...")
+        sound = pygame.mixer.Sound(sound_file)
+        sound.set_volume(0.5)  # Set volume to 50%
+        sound.play()
+        # Wait for the sound to finish playing
+        while pygame.mixer.get_busy():
+            time.sleep(0.1)
         print("Sound playback completed.")
     except Exception as e:
         print(f"Error playing sound: {e}")
