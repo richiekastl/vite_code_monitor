@@ -18,7 +18,7 @@ A simple, configurable file system monitor that plays notification sounds when f
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vibe-coding-monitor.git
+git clone https://github.com/richiekastl/vibe-coding-monitor.git
 cd vibe-coding-monitor
 
 # Install dependencies
