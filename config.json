@@ -1,0 +1,32 @@
+{
+  "excluded_files": [
+    "debug.log",
+    ".DS_Store",
+    "Thumbs.db",
+    "*.tmp",
+    "*.temp",
+    "*.swp",
+    "*.lock"
+  ],
+  "excluded_folders": [
+    "node_modules",
+    ".git",
+    "__pycache__",
+    "logs",
+    "tmp",
+    "temp",
+    "cache",
+    "dist",
+    "build"
+  ],
+  "sound_files": {
+    "jobs-done": "sounds/jobs-done.mp3",
+    "dolphin": "sounds/dolphin.mp3",
+    "wow": "sounds/wow.mp3"
+  },
+  "settings": {
+    "default_sound": "jobs-done",
+    "default_delay": 60,
+    "default_volume": 0.5
+  }
+} 
